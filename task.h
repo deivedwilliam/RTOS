@@ -32,7 +32,10 @@ typedef enum TaskState
 typedef void(*TaskFunctionCode)(void* parameters);
 
 
-void TaskCreate(TaskFunctionCode code, const unsigned char* name);
+void TaskCreate(const unsigned char* name, 
+				unsigned int PID, 
+				unsigned int priority,
+				TaskFunctionCode functionCode);
 
 
 

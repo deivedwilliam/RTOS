@@ -15,35 +15,40 @@
 extern "C"{
 #endif
 
+#include <stdbool.h>
 
 
 typedef enum OpState
 {
-	SUCCESS = 0;
+	SUCCESS = 0,
 	FAILURE
 }OpState;
 
-typedef struct List
+typedef struct Node
 {
 	void* data;
-	struct List* next;
-	struct List* previous;
-	unsigned int id;
-}List;
+	struct Node* next;
+	struct Node* previous;
+	unsigned int index;
+}*ptrNode;
+
+typedef ptrNode* DoubleListHead;
 
 typedef struct ArrayList
 {
-	List* beginning;
-	List* end;
+	DoubleListHead listHead;
+	DoubleListHead listEnd;
 	unsigned int size;
-	OpState(*add)(struct ArrayList*, void*, unsigned int);
+	OpState(*add)(struct ArrayList*, void*, bool(*compare)(void*,void*));
 	OpState(*remove)(struct ArrayList*, unsigned int);
-	OpState(*destroyList)(struct ArrayList*);
+	void*(*get)(struct ArrayList*, unsigned int);
+	OpState(*destroy)(struct ArrayList*);
 	bool(*isEmpty)(struct ArrayList*);
 }ArrayList;
 
 
 ArrayList* newArrayList(void);
+void destroyArrayList(ArrayList* list);
 
 
 #ifdef __cplusplus
