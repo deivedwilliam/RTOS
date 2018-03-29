@@ -37,6 +37,10 @@ void TaskCreate(const unsigned char* name,
 				unsigned int priority,
 				TaskFunctionCode functionCode);
 
+void TaskSuspend(void);
+void TaskDelayMs(unsigned ms);
+void TaskTicks(unsigned ticks);
+
 
 
 #ifdef __cplusplus
