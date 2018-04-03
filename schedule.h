@@ -1,7 +1,7 @@
 /************************************/
 /*		File: Schedule.h		    */
 /*		Author: Deived William		*/
-/*		Date: 	20/03/2017			*/
+/*		Date: 	20/03/2018			*/
 /************************************/
 
 
@@ -14,6 +14,10 @@ extern "C"{
 #endif
 
 
+#define SwitchContext()  {}
+
+
+	
 
 #ifdef __cplusplus
 }
