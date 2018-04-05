@@ -33,10 +33,58 @@ ptrDataStructure newDataStructure(void)
 
 RESPONSE DataStructureInsertTop(ptrDataStructure dataStruct, void* info)
 {
+	ptrNode newNode = NULL;
 
+	if(datastruct == NULL)
+	{
+		return NCREATE_DATASTRUCTURE;
+	}
+	else if(datastruct->beginning == NULL && dataStruct->end == NULL)
+	{
+		return NCREATE_DATASTRUCTURE;
+	}
+
+	newNode = (ptrNode)malloc(sizeof(struct Node));
+
+	if(newNode == NULL)
+		return ALOCATION_FAIL;
+
+	newNode->info = info;
+	newNode->index = datastruct->size;
+
+	newNode->next = *(datastruct->beginning);
+	*(datastruct->beginning) = newNode;
+
+	dataStruct->size++;
+
+	return SUCCESS;
 }
+
+
+
 RESPONSE DataStructureInsertBottom(ptrDataStructure dataStruct, void* info)
 {
+	ptrNode newNode = NULL;
+
+	if(datastruct == NULL)
+	{
+		return NCREATE_DATASTRUCTURE;
+	}
+	else if(datastruct->beginning == NULL && dataStruct->end == NULL)
+	{
+		return NCREATE_DATASTRUCTURE;
+	}
+
+	newNode = (ptrNode)malloc(sizeof(struct Node));
+
+	if(newNode == NULL)
+		return ALOCATION_FAIL;
+
+	newNode->info = info;
+	newNode->index = dataStruct->size;
+
+	*(dataStruct->end)->next = newNode;
+
 
 }
 RESPONSE DataStructureInsert(ptrDataStructure dataStruct, void* info, bool(*compare)(void*,void*))

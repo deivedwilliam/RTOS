@@ -14,10 +14,10 @@
 extern "C" {
 #endif
 
-#define newList() 	newDataStructure()
-#define newQueue()	newDataStructure()
-#define newStack()	newDataStructure()
-#define Stack_Pop(dataStruct)	DataStructureRemoveBottom(dataStruct)
+#define newList() 						newDataStructure()
+#define newQueue()						newDataStructure()
+#define newStack()						newDataStructure()
+#define Stack_Pop(dataStruct)			DataStructureRemoveBottom(dataStruct)
 #define Stack_Push(dataStruct, info)	DataStructureInsertBottom(dataStruct, info)
 #define Queue_Insert(dataStruct, info)	DataStructureInsertTop(dataStruct, info)
 #define Queue_Remove(dataStruct)		DataStructureRemoveBottom(dataStruct)
