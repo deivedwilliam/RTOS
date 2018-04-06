@@ -8,7 +8,7 @@
 #ifndef DATASTRUCTURE_H_
 #define DATASTRUCTURE_H_
 #include <stdbool.h>
-
+#include <stdio.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -24,6 +24,8 @@ extern "C" {
 
 #define toCircularChained(dataStruct)
 #define toChained(dataStruct)
+
+
 
 
 typedef enum 
@@ -43,6 +45,8 @@ typedef struct Node
 
 typedef ptrNode* HeadDataStructure;
 
+#define foreach(dataStruct, ptr) \
+   for(ptrNode scrool = *(dataStruct->beginning); scrool != NULL?ptr = scrool->info:0,scrool != NULL; scrool = scrool->next) 
 
 typedef struct DataStructure
 {
@@ -50,7 +54,7 @@ typedef struct DataStructure
 	HeadDataStructure end;
 	unsigned size;
 	ptrNode lastNodeAccessed;
-	unsigned lastIndexAcessed;
+	unsigned lastIndexAccessed;
 }*ptrDataStructure;
 
 typedef ptrDataStructure Queue;
