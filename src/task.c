@@ -1,11 +1,7 @@
 #include "DiordnaRTOSConfig.h"
 #include "../task.h"
-<<<<<<< HEAD
 #include "../DataStructure"
-=======
-#include "../ArrayList.h"
 #include <string.h>
->>>>>>> 766482207dbf3e5f032ce3de302d762a9b50aabf
 
 #ifndef __MAX_PRIORITY__
 #define __MAX_PRIORITY__ 7
@@ -18,11 +14,8 @@ typedef struct TaskControlBlock
 	unsigned int priority;
 	TaskState state;
 	TaskFunctionCode functionCode;
-<<<<<<< HEAD
 	unsigned int* Stack;
-=======
 	unsigned int stackWordSize;
->>>>>>> 766482207dbf3e5f032ce3de302d762a9b50aabf
 }TaskControlBlock;
 
 static List ReadTasks[MAX_PRIORITY];
@@ -30,12 +23,9 @@ static List BlockedTasks;
 static List SuspendedTasks;
 static TaskControlBlock* CurrentTask;
 
-<<<<<<< HEAD
-
-=======
 
 
-void TaskCreate(const unsigned char* name, unsigned int TID, unsigned int priority,unsigned int stackSize,TaskFunctionCode functionCode)
+void TaskCreate(const unsigned char* name, unsigned int TID, unsigned int priority, unsigned int stackWordSize, TaskFunctionCode functionCode)
 {
 	TaskControlBlock* newTask;
 
@@ -46,11 +36,7 @@ void TaskCreate(const unsigned char* name, unsigned int TID, unsigned int priori
 	newTask->TID = TID;
 	newTask->state = Ready;
 	newTask->functionCode = functionCode;
-	newTask->stack = calloc(stackSize,sizeof(unsigned));
-	newTask->stackByteSize = stackSize;
-
+	newTask->stack = calloc(stackWordSize,sizeof(unsigned));
+	newTask->stackWordSize = stackWordSize;
 }
-
-
->>>>>>> 766482207dbf3e5f032ce3de302d762a9b50aabf
 
